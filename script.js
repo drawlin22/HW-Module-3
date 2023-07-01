@@ -6,12 +6,11 @@ const generateBtn = document.querySelector("#generate"); /* Constant that cannot
 /* Characterset reference - http:/www.net-comber.com/charset.html */
 
 
-    let uppercase=String.fromCharCode(Math.floor(Math.random() * 26) +65);
-    let lowercase=String.fromCharCode(Math.floor(Math.random() * 26) +97);
-    let number=String.fromCharCode(Math.floor(Math.random() * 10) +48);
+    let uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let lowercase="abcdefghijklmnopqrstuvwxyz";
+    let number="0123456789";
     let symbols="!)@(#*$&%^<>?.";
-
-    let characterBank=""
+    let characterBank="";
 
 function generatePassword() {
   let confirmUpperCase= window.confirm("Click ok if you want to include uppercase letters")
@@ -20,27 +19,45 @@ function generatePassword() {
   let confirmSymbols= window.confirm("Click ok if you want to include symbols")
   let passwordLength = prompt("How many characters do you want in your password",8)
   
+if (passwordLength > 128 || passwordLength <8) {
+  return "Incorrect password length requested"
+}
+
+if (!passwordLength) {
+  return "Incorrect password length requested"
+}
+
+if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSymbols) {
+  return "Please make character selections"
+}
 
   if (confirmUpperCase === true) { 
   characterBank=characterBank+uppercase
-  console.log("+uppercase", characterBank)
 } 
   if (confirmLowerCase === true) {
   characterBank=characterBank+lowercase
-  console.log("+lowercase", characterBank)
 } 
   if (confirmNumbers === true) {
   characterBank=characterBank+number
-  console.log("+numbers", characterBank)
 } 
   if (confirmSymbols === true) {
-  characterBank=characterBank+symbols[Math.floor(Math.random()*symbols.length)];
-  console.log ("+symbols", characterBank)
+  characterBank=characterBank+symbols;
 }
-  
-  return password;
+
+
+var randomPassword = "";
+for(var i = 0; i < passwordLength; i++){
+  var randomIndex = Math.floor(Math.random()*characterBank.length)
+  // new variable (randomIndex) = Math.random to create index => 0 to the length of the characterBank.
+  randomPassword = randomPassword + characterBank[randomIndex]
+console.log (randomPassword);
+}
+
+  return randomPassword;
+
 
 }
+
 // Write password to the #password input
 function writePassword() {
   const password = generatePassword(); 
