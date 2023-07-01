@@ -5,7 +5,6 @@ const generateBtn = document.querySelector("#generate"); /* Constant that cannot
 
 /* Characterset reference - http:/www.net-comber.com/charset.html */
 
-
     let uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let lowercase="abcdefghijklmnopqrstuvwxyz";
     let number="0123456789";
@@ -17,7 +16,7 @@ function generatePassword() {
   let confirmLowerCase= window.confirm("Click ok if you want to include lowercase letters") /*user confirm box */
   let confirmNumbers= window.confirm("Click ok if you want to include numbers") /*user confirm box */
   let confirmSymbols= window.confirm("Click ok if you want to include symbols") /*user confirm box */
-  let passwordLength = prompt("How many characters do you want in your password",8) /*user confirm box */
+  let passwordLength = prompt("How many characters do you want in your password",12) /*user prompt box */
   
 if (passwordLength > 128 || passwordLength <8) {
   return "Incorrect password length requested"
@@ -27,19 +26,18 @@ if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSymbols
   return "Please make character selections"
 };
 
-  if (confirmUpperCase === true) { 
+  if (confirmUpperCase === true) { /* if user select to add upper case letters, string "uppercase" is added to the character bank */
   characterBank=characterBank+uppercase
 } ;
-  if (confirmLowerCase === true) {
+  if (confirmLowerCase === true) { /* if user select to add lower case letters, string "lowercase" is added to the character bank */
   characterBank=characterBank+lowercase
 } ;
-  if (confirmNumbers === true) {
+  if (confirmNumbers === true) { /* if user select to add numbers, string "number" are added to the character bank */
   characterBank=characterBank+number
 } ;
-  if (confirmSymbols === true) {
+  if (confirmSymbols === true) { /* if user select to add symbols, string "symbols" are added to the character bank */
   characterBank=characterBank+symbols;
 };
-
 
 var randomPassword = "";
 for(var i = 0; i < passwordLength; i++){
