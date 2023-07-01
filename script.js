@@ -23,7 +23,7 @@ if (passwordLength > 128 || passwordLength <8) {
 };
 
 if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSymbols) {
-  return "Please make character selections"
+  return "Please make character selections" /* if no user selections are made */
 };
 
   if (confirmUpperCase === true) { /* if user select to add upper case letters, string "uppercase" is added to the character bank */
@@ -39,9 +39,9 @@ if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSymbols
   characterBank=characterBank+symbols;
 };
 
-var randomPassword = "";
-for(var i = 0; i < passwordLength; i++){
-  var randomIndex = Math.floor(Math.random()*characterBank.length)
+let randomPassword = "";
+for(let i = 0; i < passwordLength; i++){
+  let randomIndex = Math.floor(Math.random()*characterBank.length)
   // new variable (randomIndex) = Math.random to create index => 0 to the length of the characterBank.
   randomPassword = randomPassword + characterBank[randomIndex]
   
