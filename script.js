@@ -10,11 +10,11 @@ const generateBtn = document.querySelector("#generate"); /* Constant that cannot
     let characterBank="";
 
 function generatePassword() {
-  let confirmUpperCase= window.confirm("Click ok if you want to include uppercase letters") /*user confirm box */
-  let confirmLowerCase= window.confirm("Click ok if you want to include lowercase letters") /*user confirm box */
-  let confirmNumbers= window.confirm("Click ok if you want to include numbers") /*user confirm box */
-  let confirmSymbols= window.confirm("Click ok if you want to include symbols") /*user confirm box */
-  let passwordLength = parseInt(prompt("How many characters do you want in your password",8)) /*user prompt box */
+  let confirmUpperCase= window.confirm("Click ok if you want to include uppercase letters"); /*user confirm box */
+  let confirmLowerCase= window.confirm("Click ok if you want to include lowercase letters"); /*user confirm box */
+  let confirmNumbers= window.confirm("Click ok if you want to include numbers"); /*user confirm box */
+  let confirmSymbols= window.confirm("Click ok if you want to include symbols"); /*user confirm box */
+  let passwordLength = parseInt(prompt("How many characters do you want in your password",8)); /*user prompt box */
   
 if (passwordLength > 128 || passwordLength <8) {
   return "Incorrect password length requested"
@@ -27,36 +27,36 @@ if (!confirmUpperCase && !confirmLowerCase && !confirmNumbers && !confirmSymbols
 };
 
   if (confirmUpperCase === true ) { /* if user select to add upper case letters, string "uppercase" is added to the character bank */
-  let randomupperIdx = Math.floor(Math.random() *uppercase.length)
-  let randomupper = uppercase[randomupperIdx]
+  let randomupperIdx = Math.floor(Math.random() *uppercase.length);
+  let randomupper = uppercase[randomupperIdx];
   characterBank += uppercase ; /* character bank = character bank + uppercase */
   randomPassword += randomupper;
 } ;
   if (confirmLowerCase === true) { /* if user select to add lower case letters, string "lowercase" is added to the character bank */
- let randomlowerIdx = Math.floor(Math.random() *lowercase.length)
- let randomlower = lowercase[randomlowerIdx]
+ let randomlowerIdx = Math.floor(Math.random() *lowercase.length);
+ let randomlower = lowercase[randomlowerIdx];
  randomPassword += randomlower;
-  characterBank=characterBank+lowercase
+  characterBank += lowercase;
 } ;
   if (confirmNumbers === true) { /* if user select to add numbers, string "number" are added to the character bank */
-let randomnumberIdx = Math.floor(Math.random() *number.length)
-let randomnumber = number[randomnumberIdx]
+let randomnumberIdx = Math.floor(Math.random() *number.length);
+let randomnumber = number[randomnumberIdx];
 randomPassword += randomnumber;
-  characterBank=characterBank+number
+  characterBank += number;
 } ;
   if (confirmSymbols === true) { /* if user select to add symbols, string "symbols" are added to the character bank */
-let randomsymbolIdx = Math.floor(Math.random() *symbols.length)
-let randomsymbols = symbols[randomsymbolIdx]
+let randomsymbolIdx = Math.floor(Math.random() *symbols.length);
+let randomsymbols = symbols[randomsymbolIdx];
 randomPassword += randomsymbols;
-characterBank=characterBank+symbols;
+characterBank += symbols;
 
 };
 
-let condition = passwordLength - randomPassword.length /* would not work in the for loop */
+let condition = passwordLength - randomPassword.length; /* would not work in the for loop */
 
 for(let i = 0; i < condition; i++){
-  let randomIndex = Math.floor(Math.random()*characterBank.length)
-  randomPassword = randomPassword + characterBank[randomIndex]
+  let randomIndex = Math.floor(Math.random()*characterBank.length);
+  randomPassword = randomPassword + characterBank[randomIndex];
   
 };
 
