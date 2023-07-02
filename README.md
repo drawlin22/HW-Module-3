@@ -16,8 +16,11 @@ https://drawlin22.github.io/JSdrawlin3/
 
 ## Credits
 
-Tutor help : Sam Pai
+Tutor help : 
+Sam Pai
 
+
+Peer colaboration:
 Chelsea Wagner
 
 https://github.com/caf62219/password-generator
