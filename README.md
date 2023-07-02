@@ -16,6 +16,7 @@ https://drawlin22.github.io/JSdrawlin3/
 
 ## Credits
 
+Tutor help : Sam Pai
 
 Chelsea Wagner
 
